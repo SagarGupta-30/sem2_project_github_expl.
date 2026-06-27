@@ -208,7 +208,57 @@ sortSelect.addEventListener(
 );
 //---------------------------------------------------------------//
 
-// sahnawaz //
+// shahnawaz //
+
+/*
+Repository Search
+*/
+
+repoSearch.addEventListener(
+"input",
+filterAndSortRepos
+);
+
+/*
+Language Filter
+*/
+
+langFilter.addEventListener(
+"change",
+filterAndSortRepos
+);
+
+/*
+Sort
+*/
+
+sortSelect.addEventListener(
+"change",
+filterAndSortRepos
+);
+
+/*
+Filter + Sort
+*/
+
+function filterAndSortRepos(){
+let repos =
+
+Utils.filterRepositories(
+allRepos,
+repoSearch.value,
+langFilter.value
+);
+repos =
+Utils.sortRepositories(
+repos,
+sortSelect.value
+);
+UI.renderRepositories(
+repos
+);
+}
+})();
 
 
 
