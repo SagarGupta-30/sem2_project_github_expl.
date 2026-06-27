@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title > GitHub Developer Explorer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+    
+        <h1>GitHub Dev Explorer</h1>
+        
+
+        <button id="themeToggle">
+            Theme
+        </button>
+    </header>
+
+    <!-- Search -->
+    <section class="search-section">
+
+        <form id="searchForm">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Enter GitHub Username">
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+        <p id="searchError" hidden></p>
+
+    </section>
+
+    <!-- Loader -->
+    
+    <div id="loader" hidden>
+        Loading...
+    </div>
+
+    <!-- Error -->
+    <div id="errorCard" hidden>
+
+        <h3 id="errorTitle">
+            Error
+        </h3>
+
+        <p id="errorMsg"></p>
+
+        <button id="retryBtn">
+            Try Again
+        </button>
+
+    </div>
+
+    <!-- Results -->
+    <div id="results" hidden>
+
+        <!-- Profile -->
+        <section>
+
+            <h2>Profile</h2>
+
+            <div id="profileCard"></div>
+
+        </section>
+
+        <!-- Controls -->
+        <section>
+
+            <input
+                type="text"
+                id="repoSearch"
+                placeholder="Search Repository">
+
+            <select id="langFilter">
+                <option value="">
+                    All Languages
+                </option>
+            </select>
+
+            <select id="sortSelect">
+
+                <option value="stars">
+                    Most Stars
+                </option>
+
+                <option value="latest">
+                    Latest Updated
+                </option>
+
+                <option value="oldest">
+                    Oldest Updated
+                </option>
+
+            </select>
+
+        </section>
+
+        <!-- Repositories -->
+        <section>
+
+            <h2>
+                Repositories
+                (<span id="repoCountBadge">0</span>)
+            </h2>
+
+            <div id="repoGrid"></div>
+
+            <div id="repoEmpty" hidden>
+                No repositories found.
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+     
+   </footer>
+
+    
+
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
