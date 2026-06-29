@@ -26,6 +26,32 @@
 
 //utkarsh verma //
 
+let allRepos = [];
+let currentUsername = "";
+/*
+*/
+Theme
+themeToggle.addEventListener(
+    "click",
+    toggleTheme
+);
+function toggleTheme() {
+    const currentTheme =
+        document.documentElement.getAttribute(
+            "data-theme"
+        );
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute(
+            "data-theme",
+            "light"
+        );
+    }
+    else {
+        document.documentElement.setAttribute(
+            "data-theme","dark"
+        );
+    }
+}
 
 
 
@@ -69,14 +95,14 @@ searchForm.addEventListener(
     handleSearch
 );
 
-async function handleSearch(event){
+async function handleSearch(event) {
 
     event.preventDefault();
 
     const username =
         searchInput.value.trim();
 
-    if(!username){
+    if (!username) {
 
         UI.showSearchError(
             "Please enter username"
@@ -98,13 +124,13 @@ async function handleSearch(event){
  Load User
 */
 
-async function loadUser(username){
+async function loadUser(username) {
 
     UI.hideError();
 
     UI.showLoader();
 
-    try{
+    try {
 
         const data =
             await API.fetchUserAndRepos(
@@ -140,7 +166,7 @@ async function loadUser(username){
 
     }
 
-    catch(error){
+    catch (error) {
 
         UI.showError(
             "Error",
@@ -149,7 +175,7 @@ async function loadUser(username){
 
     }
 
-    finally{
+    finally {
 
         UI.hideLoader();
 
@@ -164,9 +190,9 @@ async function loadUser(username){
 
 retryBtn.addEventListener(
     "click",
-    ()=>{
+    () => {
 
-        if(currentUsername){
+        if (currentUsername) {
 
             loadUser(
                 currentUsername
@@ -215,8 +241,8 @@ Repository Search
 */
 
 repoSearch.addEventListener(
-"input",
-filterAndSortRepos
+    "input",
+    filterAndSortRepos
 );
 
 /*
@@ -224,8 +250,8 @@ Language Filter
 */
 
 langFilter.addEventListener(
-"change",
-filterAndSortRepos
+    "change",
+    filterAndSortRepos
 );
 
 /*
@@ -233,32 +259,32 @@ Sort
 */
 
 sortSelect.addEventListener(
-"change",
-filterAndSortRepos
+    "change",
+    filterAndSortRepos
 );
 
 /*
 Filter + Sort
 */
 
-function filterAndSortRepos(){
-let repos =
+function filterAndSortRepos() {
+    let repos =
 
-Utils.filterRepositories(
-allRepos,
-repoSearch.value,
-langFilter.value
-);
-repos =
-Utils.sortRepositories(
-repos,
-sortSelect.value
-);
-UI.renderRepositories(
-repos
-);
+        Utils.filterRepositories(
+            allRepos,
+            repoSearch.value,
+            langFilter.value
+        );
+    repos =
+        Utils.sortRepositories(
+            repos,
+            sortSelect.value
+        );
+    UI.renderRepositories(
+        repos
+    );
 }
-})();
+}) ();
 
 
 
