@@ -1,7 +1,20 @@
 // Anshu negi //
-
-
-
+(function () {
+// main.js
+const searchForm =
+document.getElementById("searchForm");
+const searchInput =
+document.getElementById("searchInput");
+const repoSearch =
+document.getElementById("repoSearch");
+const langFilter =
+document.getElementById("langFilter");
+const sortSelect =
+document.getElementById("sortSelect");
+const retryBtn =
+document.getElementById("retryBtn");
+const themeToggle =
+document.getElementById("themeToggle");
 
 
 
